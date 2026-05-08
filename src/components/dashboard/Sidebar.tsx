@@ -14,17 +14,17 @@ export interface SideBarItem {
 const mainLinks: SideBarItem[] = [
   {
     label: "Dashboard",
-    href: "/",
+    href: "/dashboard",
     iconSrc: "/sidebar and search filter/sidebar-assets/dashboard-icon.svg",
   },
   {
     label: "Popular Competitions",
-    href: "/popular-competitions",
+    href: "/dashboard/popular",
     iconSrc: "/dashboard-assets/sidebar-assets/PopularCompetitionsIcon.svg",
   },
   {
     label: "Your Saved Competitions",
-    href: "/your-saved-competitions",
+    href: "/dashboard/saved",
     iconSrc: "/dashboard-assets/sidebar-assets/YourSavedCompetitionsIcon.svg",
   },
 ];
