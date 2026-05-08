@@ -66,7 +66,7 @@ export default function CompetitionCard({ data, rotation = 0 }: CompetitionCardP
           </div>
 
           {/* TEMP organizer tags, we need to change this to accept an array of organizers from server*/}
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <div className="flex -space-x-1.5">
               <div className="z-10 flex h-5.5 w-5.5 items-center justify-center rounded-full border border-gray-200 bg-white text-[10px] font-extrabold text-blue-500 shadow-sm">
                 G
@@ -75,10 +75,10 @@ export default function CompetitionCard({ data, rotation = 0 }: CompetitionCardP
                 VEX
               </div>
             </div>
-            <span className="font-space-grotesk text-[11px] font-semibold text-gray-400">
-              25+
-            </span>
-          </div>
+              <span className="font-space-grotesk text-[11px] font-semibold text-gray-400">
+                25+
+              </span>
+            </div> */}
         </div>
 
         {/* Title */}
