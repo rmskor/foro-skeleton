@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import { spaceGrotesk } from "@/app/ui/fonts";
+import Script from "next/script";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,6 +16,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${spaceGrotesk.className} antialiased`}>
         {children}
+        <Script
+          src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
