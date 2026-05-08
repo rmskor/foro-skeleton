@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import Image from "next/image";
+// import Image from "next/image"; // Only keep if using it elsewhere
 import { spaceGrotesk } from "@/app/ui/fonts";
 
 export default function Layout({
@@ -8,12 +8,10 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Nested layouts must not return <html> or <body> — keep them in the root layout.
+  // We remove <html> and <body> because they are already provided by app/layout.tsx
   return (
-    <html lang="en">
-      <body className={`${spaceGrotesk.className} antialiased`}>
-        {children}
-      </body>
-    </html>
+    <div className={`${spaceGrotesk.className} antialiased`}>
+      {children}
+    </div>
   );
 }

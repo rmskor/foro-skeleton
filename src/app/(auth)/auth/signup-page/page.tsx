@@ -24,42 +24,6 @@ const STEP_QUOTES: React.ReactNode[] = [
     <br />
     inspires <em className="text-cream">you</em>
   </>,
-  <>
-    Tell us
-    <br />
-    about <em className="text-cream">yourself</em>
-  </>,
-  <>
-    What
-    <br />
-    <em className="text-cream">excites</em>
-    <br />
-    you?
-  </>,
-  <>
-    How do
-    <br />
-    you <em className="text-cream">compete</em>?
-  </>,
-  <>
-    Share your
-    <br />
-    <em className="text-cream">experience</em>
-  </>,
-  <>
-    What
-    <br />
-    <em className="text-cream">drives</em>
-    <br />
-    you?
-  </>,
-  <>
-    You&apos;re
-    <br />
-    almost
-    <br />
-    <em className="text-cream">there</em>
-  </>,
 ];
 
 const STEP_TITLES = [
@@ -236,7 +200,7 @@ function SignupContent() {
       <div className="flex min-h-screen items-center justify-center bg-olive px-6 font-space-grotesk">
         <div className="max-w-md rounded-2xl bg-cream px-10 py-12 text-center shadow-lg">
           <Image
-            src="/public/signup-page/Logo.svg"
+            src="/icons/il-foro-face.svg"
             alt="Il Foro Logo"
             width={120}
             height={120}
@@ -267,16 +231,17 @@ function SignupContent() {
       <div className="relative hidden shrink-0 lg:block lg:w-[25.9%]">
         <div className="absolute inset-0">
           <Image
-            src="/public/decorative-pattern/top.svg"
+            src="/decorative-pattern/decorative-pattern.svg"
             alt="Decorative pattern"
             fill
             className="object-cover"
             priority
           />
         </div>
-        <div className="relative z-10 px-[3.6%] pt-[55px]">
+{/* Change px-[3.6%] to a fixed padding like px-8 or px-10 */}
+        <div className="relative z-10 px-10 pt-[55px]">
           <h1
-            className={`${ebGaramond.className} text-[clamp(40px,4.4vw,64px)] font-medium leading-[0.9] text-black`}
+            className={`${ebGaramond.className} text-[clamp(32px,4vw,48px)] font-medium leading-[1.1] text-black`}
           >
             {STEP_QUOTES[step - 1]}
           </h1>
@@ -285,16 +250,18 @@ function SignupContent() {
 
       {/* Right Side - Cream Form Panel */}
       <div className="flex flex-1 overflow-y-auto bg-cream lg:rounded-l-[30px]">
-        <div className="w-full px-6 py-8 sm:px-10 lg:px-[8%] lg:py-0">
+        {/* Change py-8 to py-4 and use items-center to keep things centered if there is space */}
+        <div className="w-full px-6 py-4 sm:px-10 lg:px-[8%] flex flex-col justify-center min-h-full">
           {/* Header: Logo + Progress */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mb-4"> 
             <div className="flex justify-center lg:justify-start">
               <Image
-                src="/il_foro_logo_signup.png"
+                src="/icons/il-foro-face.png"
                 alt="Il Foro Logo"
                 width={213}
                 height={213}
-                className="h-auto w-[120px] sm:w-[150px] lg:w-[14.8vw] lg:max-w-[180px]"
+                // Reduced max-width and height
+                className="h-auto w-[80px] sm:w-[120px] lg:w-[10vw] lg:max-w-[140px]"
               />
             </div>
 
@@ -354,7 +321,7 @@ function SignupContent() {
                     className="flex h-[67px] items-center justify-center gap-6 rounded-lg border border-dark-gray px-6 text-xl font-medium text-dark-gray transition-all hover:bg-dark-gray/5"
                   >
                     <Image
-                      src="/public/signup-page/google-icon.svg"
+                      src="/icons/google-icon.svg"
                       alt="Google"
                       width={38}
                       height={38}

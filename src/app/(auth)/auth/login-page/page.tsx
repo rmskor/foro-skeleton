@@ -65,12 +65,12 @@ function LoginForm() {
 
   return (
     <div
-      className={`${spaceGrotesk.className} relative flex min-h-screen bg-bark`}
+      className={`${spaceGrotesk.className} relative flex min-h-screen bg-[#834A4A]`}
     >
       {/* Left Side – Decorative */}
       <div className="relative hidden shrink-0 overflow-hidden lg:block lg:w-[25.9%]">
         <Image
-          src="/decorative-pattern-red.svg"
+          src="/decorative-pattern/decorative-pattern-red.svg"
           alt=""
           fill
           className="object-cover"
@@ -92,7 +92,7 @@ function LoginForm() {
           <div className="flex justify-center lg:justify-start">
             <Link href="/">
               <Image
-                src="/logo.png"
+                src="/icons/il-foro-face.png"
                 alt="Il Foro Logo"
                 width={213}
                 height={213}
@@ -151,7 +151,7 @@ function LoginForm() {
               >
                 <span>{loading ? "Logging in..." : "Log in"}</span>
                 <Image
-                  src="/arrow-right.svg"
+                  src="/icons/arrow-right.svg"
                   alt=""
                   width={13}
                   height={14}
@@ -165,7 +165,7 @@ function LoginForm() {
                 className="flex h-[67px] items-center gap-6 rounded-lg border border-dark-gray px-[27px] text-xl font-medium text-dark-gray transition-all hover:bg-dark-gray/5 disabled:opacity-50"
               >
                 <Image
-                  src="/google-icon.svg"
+                  src="/icons/google-icon.svg"
                   alt=""
                   width={38}
                   height={38}
