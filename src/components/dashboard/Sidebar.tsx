@@ -12,16 +12,21 @@ export interface SideBarItem {
 }
 
 const mainLinks: SideBarItem[] = [
-    {
-        label: "Popular Competitions",
-        href: "/popular-competitions",
-        iconSrc: "/dashboard-assets/sidebar-assets/PopularCompetitionsIcon.svg",
-    },
-    {
-        label: "Your Saved Competitions",
-        href: "/your-saved-competitions",
-        iconSrc: "/dashboard-assets/sidebar-assets/YourSavedCompetitionsIcon.svg"
-    },
+  {
+    label: "Dashboard",
+    href: "/",
+    iconSrc: "/sidebar and search filter/sidebar-assets/dashboard-icon.svg",
+  },
+  {
+    label: "Popular Competitions",
+    href: "/popular-competitions",
+    iconSrc: "/dashboard-assets/sidebar-assets/PopularCompetitionsIcon.svg",
+  },
+  {
+    label: "Your Saved Competitions",
+    href: "/your-saved-competitions",
+    iconSrc: "/dashboard-assets/sidebar-assets/YourSavedCompetitionsIcon.svg",
+  },
 ];
 
 const bottomLinks: SideBarItem[] = [

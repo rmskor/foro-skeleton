@@ -173,6 +173,8 @@ export default function Dashboard() {
 
       <main className="flex-1 p-8">
         <div className="max-w-7xl mx-auto">
+
+          <h1 className="font-garamond font-semibold text-2xl p-2">Dashboard</h1>
           
           <SearchBar
             searchQuery={searchQuery}
