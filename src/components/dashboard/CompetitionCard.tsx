@@ -231,7 +231,7 @@ export default function CompetitionCard({ data, rotation = 0 }: CompetitionCardP
       </div>
       {showPopup &&
         createPortal(
-          <CopyToClipboardPopup />,
+          <CopyToClipboardPopup onClose={() => setShowPopup(false)} />,
           document.body,
         )}
     </article>
