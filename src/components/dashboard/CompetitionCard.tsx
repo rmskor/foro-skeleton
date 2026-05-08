@@ -33,7 +33,7 @@ export default function CompetitionCard({ data, rotation = 0 }: CompetitionCardP
 
   return (
     <article
-      className="flex w-full origin-center cursor-pointer flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="flex w-full origin-center cursor-pointer flex-col overflow-hidden rounded-xl border border-black-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
       style={{ transform: `rotate(${rotation}deg)` }} // what are we sing rotation for?
     >
 
