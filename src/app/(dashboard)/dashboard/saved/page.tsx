@@ -19,6 +19,7 @@ const mockCompetitions: CompetitionCardData[] = [
     groupSize: "Team (3-5 members)",
     information: "Design and program autonomous robots for complex navigation challenges.",
     studentsCount: 1500,
+    competitionWebsite: "https://google.com"
   },
 ];
 

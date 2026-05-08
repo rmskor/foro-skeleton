@@ -15,7 +15,7 @@ const mainLinks: SideBarItem[] = [
   {
     label: "Dashboard",
     href: "/dashboard",
-    iconSrc: "/sidebar and search filter/sidebar-assets/dashboard-icon.svg",
+    iconSrc: "/dashboard-assets/sidebar-assets/dashboard-icon.svg",
   },
   {
     label: "Popular Competitions",
