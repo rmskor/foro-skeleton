@@ -2,7 +2,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function CopyToClipboardPopup({ onClose }) {
+interface CopyToClipboardPopupProps {
+  onClose: () => void;
+}
+
+export default function CopyToClipboardPopup({ onClose }: CopyToClipboardPopupProps) {
   const [isExiting, setIsExiting] = useState(false);
 
   // Auto‑close after 3 seconds (with exit animation)

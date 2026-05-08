@@ -1,9 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import SubjectTag, { type SubjectName } from "./SubjectTag";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import CopyToClipboardPopup from "./CopyToClipboardPopup";
-import { useState } from "react";
 import { createPortal } from "react-dom";
 
 
@@ -37,15 +39,21 @@ const AVATAR_COLORS = ["#60a5fa", "#f472b6", "#4ade80"];
 
 
 export default function CompetitionCard({ data, rotation = 0 }: CompetitionCardProps) {
-  if (!data) return null;
-
+  const [isSaved, setIsSaved] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleCopy = async (text) => {
+  if (!data) return null;
+
+  const handleSave = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsSaved(!isSaved);
+  };
+
+  const handleCopy = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-        setShowPopup(true); // show your popup
-        setTimeout(() => setShowPopup(false), 4000); 
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 4000);
     } catch (err) {
       console.error("Failed to copy!", err);
     }
@@ -121,23 +129,14 @@ export default function CompetitionCard({ data, rotation = 0 }: CompetitionCardP
               </svg>
             </button> */}
             <button
-              aria-label="Save competition"
-              className="transition-colors hover:text-blue-500"
+              onClick={handleSave}
+              aria-label={isSaved ? "Unsave competition" : "Save competition"}
+              className={`transition-all duration-200 ${
+                isSaved ? "text-blue-600" : "text-gray-400 hover:text-blue-500"
+              }`}
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19 21L12 16L5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+              <svg width="18" height="18" viewBox="0 0 24 24" fill={isSaved ? "currentColor" : "none"} xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 21L12 16L5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             <button
@@ -145,19 +144,8 @@ export default function CompetitionCard({ data, rotation = 0 }: CompetitionCardP
               aria-label="Share competition"
               className="transition-colors hover:text-gray-800"
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M1 18.5088C1 13.1679 4.90169 8.77098 9.99995 7.84598V5.51119C9.99995 3.63887 12.1534 2.58563 13.6313 3.73514L21.9742 10.224C23.1323 11.1248 23.1324 12.8752 21.9742 13.7761L13.6314 20.2649C12.1534 21.4144 10 20.3612 10 18.4888V16.5189C7.74106 16.9525 5.9625 18.1157 4.92778 19.6838C4.33222 20.5863 3.30568 20.7735 2.55965 20.5635C1.80473 20.3511 1.00011 19.6306 1 18.5088ZM12.4034 5.31385C12.2392 5.18613 11.9999 5.30315 11.9999 5.51119V9.41672C11.9999 9.55479 11.8873 9.66637 11.7493 9.67008C8.09094 9.76836 4.97774 12.0115 3.66558 15.1656C3.46812 15.6402 3.31145 16.1354 3.19984 16.6471C3.07554 17.217 3.00713 17.8072 3.00053 18.412C3.00018 18.4442 3 18.4765 3 18.5088C3.00001 18.6437 3.18418 18.6948 3.25846 18.5822C3.27467 18.5577 3.29101 18.5332 3.30747 18.5088C3.30748 18.5088 3.30746 18.5088 3.30747 18.5088C3.63446 18.0244 4.01059 17.5765 4.42994 17.168C4.71487 16.8905 5.01975 16.6313 5.34276 16.3912C7.05882 15.1158 9.28642 14.3823 11.7496 14.3357C11.8877 14.3331 12 14.4453 12 14.5834V18.4888C12 18.6969 12.2393 18.8139 12.4035 18.6862L20.7463 12.1973C20.875 12.0973 20.875 11.9028 20.7463 11.8027L12.4034 5.31385Z"
-                  fill="currentColor"
-                />
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" clipRule="evenodd" d="M1 18.5088C1 13.1679 4.90169 8.77098 9.99995 7.84598V5.51119C9.99995 3.63887 12.1534 2.58563 13.6313 3.73514L21.9742 10.224C23.1323 11.1248 23.1324 12.8752 21.9742 13.7761L13.6314 20.2649C12.1534 21.4144 10 20.3612 10 18.4888V16.5189C7.74106 16.9525 5.9625 18.1157 4.92778 19.6838C4.33222 20.5863 3.30568 20.7735 2.55965 20.5635C1.80473 20.3511 1.00011 19.6306 1 18.5088ZM12.4034 5.31385C12.2392 5.18613 11.9999 5.30315 11.9999 5.51119V9.41672C11.9999 9.55479 11.8873 9.66637 11.7493 9.67008C8.09094 9.76836 4.97774 12.0115 3.66558 15.1656C3.46812 15.6402 3.31145 16.1354 3.19984 16.6471C3.07554 17.217 3.00713 17.8072 3.00053 18.412C3.00018 18.4442 3 18.4765 3 18.5088C3.00001 18.6437 3.18418 18.6948 3.25846 18.5822C3.27467 18.5577 3.29101 18.5332 3.30747 18.5088C3.30748 18.5088 3.30746 18.5088 3.30747 18.5088C3.63446 18.0244 4.01059 17.5765 4.42994 17.168C4.71487 16.8905 5.01975 16.6313 5.34276 16.3912C7.05882 15.1158 9.28642 14.3823 11.7496 14.3357C11.8877 14.3331 12 14.4453 12 14.5834V18.4888C12 18.6969 12.2393 18.8139 12.4035 18.6862L20.7463 12.1973C20.875 12.0973 20.875 11.9028 20.7463 11.8027L12.4034 5.31385Z" fill="currentColor" />
               </svg>
             </button>
           </div>
@@ -243,7 +231,7 @@ export default function CompetitionCard({ data, rotation = 0 }: CompetitionCardP
       </div>
       {showPopup &&
         createPortal(
-          <CopyToClipboardPopup />,
+          <CopyToClipboardPopup onClose={() => setShowPopup(false)} />,
           document.body,
         )}
     </article>
