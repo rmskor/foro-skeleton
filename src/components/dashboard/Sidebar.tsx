@@ -32,7 +32,7 @@ const mainLinks: SideBarItem[] = [
 const bottomLinks: SideBarItem[] = [
     {
         label: "Settings",
-        href: "settings",
+        href: "/settings",
         iconSrc: "/dashboard-assets/sidebar-assets/SettingsIcon.svg",
     },
     {
