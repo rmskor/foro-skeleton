@@ -1,6 +1,11 @@
 import React from "react";
 import Sidebar from "@/components/dashboard/Sidebar";
 import ProfilePicture from "@/components/dashboard/settings-page/ProfilePicture";
+import ProfileCustomization from "@/components/dashboard/settings-page/ProfileCustomization";
+import AcademicInfo from "@/components/dashboard/settings-page/AcademicInfo";
+import SecurityAndPrivacy from "@/components/dashboard/settings-page/SecurityAndPrivacy";
+import LanguageAndRegion from "@/components/dashboard/settings-page/LanguageAndRegion";
+import AccountSettings from "@/components/dashboard/settings-page/AccountSettings";
 
 export default function Settings() {
   return (
@@ -10,19 +15,13 @@ export default function Settings() {
       </span>
 
       <main className="flex-1 p-8">
-        <div className="mx-auto max-w-7xl">
-        
-        {/*           
-          <h1 className="p-2 text-2xl font-semibold font-garamond">
-            Settings
-          </h1> */}
-          
+        <div className="mx-auto flex max-w-7xl flex-col gap-6">
           <ProfilePicture />
-
-          <div className="mt-6 p-2">
-            
-          </div>
-
+          <ProfileCustomization />
+          <AcademicInfo />
+          <SecurityAndPrivacy />
+          <LanguageAndRegion />
+          <AccountSettings />
         </div>
       </main>
     </div>
