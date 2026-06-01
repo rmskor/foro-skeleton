@@ -3,7 +3,6 @@ import Sidebar from "@/components/dashboard/Sidebar";
 import ProfilePicture from "@/components/dashboard/settings-page/ProfilePicture";
 import ProfileCustomization from "@/components/dashboard/settings-page/ProfileCustomization";
 import AcademicInfo from "@/components/dashboard/settings-page/AcademicInfo";
-import SecurityAndPrivacy from "@/components/dashboard/settings-page/SecurityAndPrivacy";
 import LanguageAndRegion from "@/components/dashboard/settings-page/LanguageAndRegion";
 import AccountSettings from "@/components/dashboard/settings-page/AccountSettings";
 import SaveDiscard from "@/components/dashboard/settings-page/SaveDiscard";
@@ -20,7 +19,6 @@ export default function Settings() {
           <ProfilePicture />
           <ProfileCustomization />
           <AcademicInfo />
-          <SecurityAndPrivacy />
           <LanguageAndRegion />
           <AccountSettings />
           <SaveDiscard />

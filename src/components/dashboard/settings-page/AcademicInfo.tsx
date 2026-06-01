@@ -10,10 +10,8 @@ export interface Subject {
 export interface AcademicInfoProps {
   grade?: string;
   subjects?: Subject[];
-  email?: string;
   onGradeChange?: (value: string) => void;
   onAddSubject?: () => void;
-  onEmailChange?: (value: string) => void;
 }
 
 const defaultSubjects: Subject[] = [
@@ -25,10 +23,8 @@ const defaultSubjects: Subject[] = [
 export default function AcademicInfo({
   grade = "",
   subjects = defaultSubjects,
-  email = "",
   onGradeChange,
   onAddSubject,
-  onEmailChange,
 }: AcademicInfoProps) {
   const inputClass =
     "w-full rounded-lg border border-gray-800 bg-cream px-4 py-3 font-space-grotesk text-base text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400";
@@ -38,17 +34,6 @@ export default function AcademicInfo({
       <h2 className="mb-8 font-garamond text-3xl font-bold text-black sm:text-4xl">
         Academic information
       </h2>
-
-      <label className="flex flex-col gap-1.5">
-        <span className="font-space-grotesk text-sm font-medium text-gray-900">Grade</span>
-        <select value={grade} onChange={(e) => onGradeChange?.(e.target.value)} className={`${inputClass} appearance-none`}>
-          <option value="" disabled>My grade</option>
-          <option value="9">Grade 9</option>
-          <option value="10">Grade 10</option>
-          <option value="11">Grade 11</option>
-          <option value="12">Grade 12</option>
-        </select>
-      </label>
 
       <div className="mt-6 flex flex-col gap-1.5">
         <span className="font-space-grotesk text-sm font-medium text-gray-900">Subjects and interests</span>
@@ -63,11 +48,6 @@ export default function AcademicInfo({
           </button>
         </div>
       </div>
-
-      <label className="mt-6 flex flex-col gap-1.5">
-        <span className="font-space-grotesk text-sm font-medium text-gray-900">Mail</span>
-        <input type="email" placeholder="My email" value={email} onChange={(e) => onEmailChange?.(e.target.value)} className={inputClass} />
-      </label>
     </div>
   );
 }

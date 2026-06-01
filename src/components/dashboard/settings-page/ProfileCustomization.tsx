@@ -6,6 +6,7 @@ export interface ProfileCustomizationProps {
   surname?: string;
   username?: string;
   age?: string;
+  grade?: string;
   email?: string;
   onChange?: (field: string, value: string) => void;
 }
@@ -15,6 +16,7 @@ export default function ProfileCustomization({
   surname = "",
   username = "",
   age = "",
+  grade = "",
   email = "",
   onChange,
 }: ProfileCustomizationProps) {
@@ -29,26 +31,83 @@ export default function ProfileCustomization({
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5">
-          <span className="font-space-grotesk text-sm font-medium text-gray-900">Name</span>
-          <input type="text" placeholder="First name" value={firstName} onChange={(e) => onChange?.("firstName", e.target.value)} className={inputClass} />
+          <span className="font-space-grotesk text-sm font-medium text-gray-900">
+            Name
+          </span>
+          <input
+            type="text"
+            placeholder="First name"
+            value={firstName}
+            onChange={(e) => onChange?.("firstName", e.target.value)}
+            className={inputClass}
+          />
         </label>
         <label className="flex flex-col gap-1.5 sm:mt-6">
-          <input type="text" placeholder="Surname" value={surname} onChange={(e) => onChange?.("surname", e.target.value)} className={inputClass} />
+          <input
+            type="text"
+            placeholder="Surname"
+            value={surname}
+            onChange={(e) => onChange?.("surname", e.target.value)}
+            className={inputClass}
+          />
         </label>
 
         <label className="flex flex-col gap-1.5">
-          <span className="font-space-grotesk text-sm font-medium text-gray-900">Username</span>
-          <input type="text" placeholder="My username" value={username} onChange={(e) => onChange?.("username", e.target.value)} className={inputClass} />
+          <span className="font-space-grotesk text-sm font-medium text-gray-900">
+            Username
+          </span>
+          <input
+            type="text"
+            placeholder="My username"
+            value={username}
+            onChange={(e) => onChange?.("username", e.target.value)}
+            className={inputClass}
+          />
         </label>
         <label className="flex flex-col gap-1.5">
-          <span className="font-space-grotesk text-sm font-medium text-gray-900">Age</span>
-          <input type="text" placeholder="Age" value={age} onChange={(e) => onChange?.("age", e.target.value)} className={inputClass} />
+          <span className="font-space-grotesk text-sm font-medium text-gray-900">
+            Age
+          </span>
+          <input
+            type="text"
+            placeholder="Age"
+            value={age}
+            onChange={(e) => onChange?.("age", e.target.value)}
+            className={inputClass}
+          />
         </label>
       </div>
 
       <label className="mt-6 flex flex-col gap-1.5">
-        <span className="font-space-grotesk text-sm font-medium text-gray-900">Mail</span>
-        <input type="email" placeholder="My email" value={email} onChange={(e) => onChange?.("email", e.target.value)} className={inputClass} />
+        <span className="font-space-grotesk text-sm font-medium text-gray-900">
+          Grade
+        </span>
+        <select
+          value={grade}
+          onChange={(e) => onGradeChange?.(e.target.value)}
+          className={`${inputClass} appearance-none`}
+        >
+          <option value="" disabled>
+            My grade
+          </option>
+          <option value="9">Grade 9</option>
+          <option value="10">Grade 10</option>
+          <option value="11">Grade 11</option>
+          <option value="12">Grade 12</option>
+        </select>
+      </label>
+
+      <label className="mt-6 flex flex-col gap-1.5">
+        <span className="font-space-grotesk text-sm font-medium text-gray-900">
+          Mail
+        </span>
+        <input
+          type="email"
+          placeholder="My email"
+          value={email}
+          onChange={(e) => onChange?.("email", e.target.value)}
+          className={inputClass}
+        />
       </label>
     </div>
   );
