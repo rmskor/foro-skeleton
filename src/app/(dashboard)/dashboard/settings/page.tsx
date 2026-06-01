@@ -6,6 +6,7 @@ import AcademicInfo from "@/components/dashboard/settings-page/AcademicInfo";
 import SecurityAndPrivacy from "@/components/dashboard/settings-page/SecurityAndPrivacy";
 import LanguageAndRegion from "@/components/dashboard/settings-page/LanguageAndRegion";
 import AccountSettings from "@/components/dashboard/settings-page/AccountSettings";
+import SaveDiscard from "@/components/dashboard/settings-page/SaveDiscard";
 
 export default function Settings() {
   return (
@@ -22,6 +23,7 @@ export default function Settings() {
           <SecurityAndPrivacy />
           <LanguageAndRegion />
           <AccountSettings />
+          <SaveDiscard />
         </div>
       </main>
     </div>
