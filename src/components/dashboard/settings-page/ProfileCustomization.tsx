@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 export interface ProfileCustomizationProps {
   firstName?: string;
@@ -7,23 +7,9 @@ export interface ProfileCustomizationProps {
   username?: string;
   age?: string;
   grade?: string;
+  email?: string;
   onChange?: (field: string, value: string) => void;
 }
-
-const GRADE_OPTIONS = [
-  "Grade 6",
-  "Grade 7",
-  "Grade 8",
-  "Grade 9",
-  "Grade 10",
-  "Grade 11",
-  "Grade 12",
-  "University - Year 1",
-  "University - Year 2",
-  "University - Year 3",
-  "University - Year 4+",
-  "Other",
-];
 
 export default function ProfileCustomization({
   firstName = "",
@@ -31,34 +17,11 @@ export default function ProfileCustomization({
   username = "",
   age = "",
   grade = "",
+  email = "",
   onChange,
 }: ProfileCustomizationProps) {
-  const [ageError, setAgeError] = useState<string | null>(null);
-
   const inputClass =
     "w-full rounded-lg border border-gray-800 bg-cream px-4 py-3 font-space-grotesk text-base text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400";
-
-  function handleAgeChange(value: string) {
-    // Allow empty string while user is clearing the field
-    if (value === "") {
-      setAgeError(null);
-      onChange?.("age", value);
-      return;
-    }
-
-    // Must be a positive integer
-    const num = Number(value);
-    if (!Number.isInteger(num) || num < 1 || num > 120) {
-      setAgeError("Age must be a whole number (1–120).");
-      // Still update the raw value so the user can see what they typed
-      onChange?.("age", value);
-      return;
-    }
-
-    setAgeError(null);
-    onChange?.("age", value);
-  }
-
 
   return (
     <div className="mx-auto w-full max-w-6xl overflow-hidden rounded-xl border border-gray-800 bg-cream p-8">
@@ -106,25 +69,12 @@ export default function ProfileCustomization({
             Age
           </span>
           <input
-            type="number"
-            inputMode="numeric"
-            min="1"
-            max="120"
-            step="1"
+            type="text"
             placeholder="Age"
             value={age}
-            onChange={(e) => handleAgeChange(e.target.value)}
-            className={`${inputClass} ${
-              ageError
-                ? "border-red-500 focus:ring-red-400"
-                : ""
-            }`}
+            onChange={(e) => onChange?.("age", e.target.value)}
+            className={inputClass}
           />
-          {ageError && (
-            <span className="font-space-grotesk text-xs text-red-600">
-              {ageError}
-            </span>
-          )}
         </label>
       </div>
 
@@ -134,18 +84,30 @@ export default function ProfileCustomization({
         </span>
         <select
           value={grade}
-          onChange={(e) => onChange?.("grade", e.target.value)}
+          onChange={(e) => onGradeChange?.(e.target.value)}
           className={`${inputClass} appearance-none`}
         >
           <option value="" disabled>
             My grade
           </option>
-          {GRADE_OPTIONS.map((g) => (
-            <option key={g} value={g}>
-              {g}
-            </option>
-          ))}
+          <option value="9">Grade 9</option>
+          <option value="10">Grade 10</option>
+          <option value="11">Grade 11</option>
+          <option value="12">Grade 12</option>
         </select>
+      </label>
+
+      <label className="mt-6 flex flex-col gap-1.5">
+        <span className="font-space-grotesk text-sm font-medium text-gray-900">
+          Mail
+        </span>
+        <input
+          type="email"
+          placeholder="My email"
+          value={email}
+          onChange={(e) => onChange?.("email", e.target.value)}
+          className={inputClass}
+        />
       </label>
     </div>
   );
