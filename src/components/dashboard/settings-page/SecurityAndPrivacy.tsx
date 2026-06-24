@@ -1,3 +1,17 @@
+/*
+ * SecurityAndPrivacy — shelved (no messenger feature yet).
+ *
+ * "use client";
+ * import React from "react";
+ *
+ * export interface SecurityAndPrivacyProps { ... }
+ * export default function SecurityAndPrivacy({ ... }) { ... }
+ */
+
+// The component below is commented out until messaging is implemented.
+// To restore, uncomment the code block and import it in the settings page.
+
+/*
 "use client";
 import React from "react";
 
@@ -44,3 +58,4 @@ export default function SecurityAndPrivacy({
     </div>
   );
 }
+*/
